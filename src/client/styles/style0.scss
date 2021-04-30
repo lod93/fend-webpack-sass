@@ -1,0 +1,48 @@
+$font-stack: arial, open sans-serif;
+$main-color: rgb(0, 25, 78);
+$second-color: rgb(158, 158, 158);
+$third-color: rgb(82, 82, 82);
+$correct-color: rgb(20, 150, 20);
+$danger-color: rgb(150, 20, 20);
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin font-scale($scale: 1) {
+  h1 {
+    font-size: $scale * 1.5 em;
+  }
+  h2 {
+    font-size: $scale * 1 em;
+  }
+  h3 {
+    font-size: $scale * 0.75 em;
+  }
+  h4 {
+    font-size: $scale * 0.6 em;
+  }
+}
+.card {
+  font-size: 1em;
+  width: 20%;
+  background-color: $third-color;
+  @include border-radius(5px);
+}
+body {
+  font: 100% $font-stack;
+  color: $main-color;
+  background-color: $second-color;
+  .card-correct {
+    @extend .card;
+    color: $correct-color;
+  }
+  .card-wrong {
+    @extend .card;
+    color: $danger-color;
+  }
+}
+.text-block {
+  @include font-scale(0.7);
+}
